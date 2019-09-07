@@ -209,7 +209,7 @@ html, body {
 
 .copyright {
 	position: absolute;
-	bottom: 5px;
+	bottom: 10px;
 	text-align: center;
 	color:#fff;
 	width: 100%;
@@ -226,7 +226,7 @@ html, body {
 .menu-open {
 	width: 7vh;
 	height: 7vh;
-	background: #3c3c3c;
+	background: #3a3737;
 	border-radius: 0 50% 50% 0;
 	display: flex;
 	align-items: center;
