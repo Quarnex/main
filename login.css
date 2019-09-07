@@ -51,9 +51,17 @@ body, html {
 .login-button {
 	width: 150px;
 	cursor: pointer;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
 	height: 40px;
+	color: #ecf0f1;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	background-color: #c94c3f;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.chk {
+	background-color: #47d7a6;
 }
