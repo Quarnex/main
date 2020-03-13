@@ -1,4 +1,4 @@
-# maos
+# maps
 
 ## Project setup
 ```
