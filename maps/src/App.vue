@@ -2,11 +2,14 @@
 
   <div id="app">
 
+
     <input v-model="menu_layers">
+
 
     <button>2131</button>
 
     <div class="menu">
+
 
       <label @click="menu_layers=!menu_layers">Конструктор</label>{{amper}}<br><br>
 
@@ -26,11 +29,14 @@
 
   import sidepanel from '@/components/sidepanel.vue'
 
+
   export default {
     name: 'App',
     data(){
       return{
+
           menu_layers:false,
+
           amper:'&'
       }
     },
