@@ -2,16 +2,19 @@
 
   <div id="app">
 
-    <input v-model="asd">
+
+    <input v-model="menu_layers">
+
 
     <button>2131</button>
 
     <div class="menu">
 
-      <label v-on:click="testclick">Конструктор</label>{{amper}}<br><br>
+
+      <label @click="menu_layers=!menu_layers">Конструктор</label>{{amper}}<br><br>
 
       <transition name="slide-fade">
-          <sidepanel v-if="asd=='show'" />
+          <sidepanel v-if="menu_layers==true" />
       </transition>
 
       <label>Конструктор2</label>
@@ -24,13 +27,16 @@
 
 <script>
 
-  import sidepanel from '@/components/SidePanel.vue'
+  import sidepanel from '@/components/sidepanel.vue'
+
 
   export default {
     name: 'App',
     data(){
       return{
-          asd:'dont-show',
+
+          menu_layers:false,
+
           amper:'&'
       }
     },
@@ -38,10 +44,7 @@
       sidepanel,
     },
     methods:{
-      testclick(){
-          this.asd='show'
-          
-      }
+    
     }
   }
 
