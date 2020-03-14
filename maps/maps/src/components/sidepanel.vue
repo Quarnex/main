@@ -1,6 +1,21 @@
 <template>
-    <div style="width:190px;height:190px;background: aqua;">
-        <lable>Инструменты</lable>
-        <input>
-    </div>
+
+  <div class="dropdown">
+
+    <lable>Инструменты</lable>
+
+    <input>
+
+  </div>
+
 </template>
+
+<style>
+
+  .dropdown {
+    max-width: 100%;
+    background: #ccc;
+    padding: 20px;       
+  }
+
+</style>
