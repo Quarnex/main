@@ -8,7 +8,6 @@ var gulp         = require('gulp'),
 		rsync        = require('gulp-rsync'),
 		newer        = require('gulp-newer'),
 		rename       = require('gulp-rename'),
-		responsive   = require('gulp-responsive'),
 		del          = require('del');
 
 // Local Server
@@ -41,7 +40,8 @@ gulp.task('styles', function() {
 // Scripts & JS Libraries
 gulp.task('scripts', function() {
 	return gulp.src([
-		// 'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+		'node_modules/jquery/dist/jquery.min.js', // Optional jQuery plug-in (npm i --save-dev jquery)
+		'node_modules/jquery-ui-dist/jquery-ui.min.js', // Jquery UI library (npm i jquery-ui-dist --save)
 		'app/js/_lazy.js', // JS library plug-in example
 		'app/js/_custom.js', // Custom scripts. Always at the end
 		])
@@ -51,28 +51,6 @@ gulp.task('scripts', function() {
 	.pipe(browserSync.reload({ stream: true }))
 });
 
-// Responsive Images
-gulp.task('img-responsive', async function() {
-	return gulp.src('app/img/_src/**/*.{png,jpg,jpeg,webp,raw}')
-		.pipe(newer('app/img/@1x'))
-		.pipe(responsive({
-			'*': [{
-				// Produce @2x images
-				width: '100%', quality: 90, rename: { prefix: '@2x/', },
-			}, {
-				// Produce @1x images
-				width: '50%', quality: 90, rename: { prefix: '@1x/', }
-			}]
-		})).on('error', function () { console.log('No matching images found') })
-		.pipe(rename(function (path) {path.extname = path.extname.replace('jpeg', 'jpg')}))
-		.pipe(gulp.dest('app/img'))
-});
-gulp.task('img', gulp.series('img-responsive', bsReload));
-
-// Clean @*x IMG's
-gulp.task('cleanimg', function() {
-	return del(['app/img/@*'], { force: true })
-});
 
 // Code & Reload
 gulp.task('code', function() {
@@ -100,7 +78,6 @@ gulp.task('watch', function() {
 	gulp.watch('app/sass/**/*.sass', gulp.parallel('styles'));
 	gulp.watch(['libs/**/*.js', 'app/js/_custom.js'], gulp.parallel('scripts'));
 	gulp.watch('app/*.html', gulp.parallel('code'));
-	gulp.watch('app/img/_src/**/*', gulp.parallel('img'));
 });
 
-gulp.task('default', gulp.parallel('img', 'styles', 'scripts', 'browser-sync', 'watch'));
+gulp.task('default', gulp.parallel('styles', 'scripts', 'browser-sync', 'watch'));
