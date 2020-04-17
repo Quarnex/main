@@ -64,14 +64,12 @@
                         </div>
                         <div class="custom-control custom-checkbox form-group">
                             <input type="checkbox" class="custom-control-input" name="remember" id="exampleCheck1" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="custom-control-label" for="exampleCheck1" for="remember">Запомнить пароль</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Войти</button>
                     </form>
-                    <p class="m-t-sm"><a href="#">Забыли пароль?</a><br><a href="{{ route('register') }}">Создать учетную запись</a></p>
                 </div>
                 <div class="login-footer">
-                    <p>Copyright @Stacks</p>
+                    <p>©TOO "IT Group Kazakhstan"</p>
                 </div>
             </div>
         </div>
